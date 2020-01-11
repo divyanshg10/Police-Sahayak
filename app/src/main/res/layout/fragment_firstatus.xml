@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".FIRStatus">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/birl1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#00171d">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Change FIR Status"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#fff"
+        android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="20dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:weightSum="12">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Change Status To"
+                android:gravity="start"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/pending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edittext"
+                android:text="Pending"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:textColor="#fff"
+                android:textSize="15sp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"/>
+            <TextView
+                android:id="@+id/disposed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/bg_edittext"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="Disposed"
+                android:textColor="#fff"
+                android:textSize="15sp"
+                android:layout_marginHorizontal="15dp"/>
+
+            <TextView
+                android:id="@+id/both"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edittext"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:gravity="center"
+                android:text="Both"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/birl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_alignParentBottom="true">
+
+        <ProgressBar
+            android:id="@+id/info_progress"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:elevation="10dp"
+            android:progressTint="#ffffff"
+            android:indeterminateTint="#ffffff"
+            android:backgroundTint="#ffffff"
+            android:visibility="gone"
+            android:layout_centerInParent="true" />
+
+        <Button
+            android:id="@+id/savebtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_submit_btn"
+            android:gravity="center"
+            android:text="SAVE"
+
+            android:lineSpacingExtra="3sp"
+            android:textColor="#ffffff" />
+
+    </RelativeLayout>
+</RelativeLayout>
