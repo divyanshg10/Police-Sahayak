@@ -9,6 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/textfield"
+        android:background="@drawable/search"
+        android:textAlignment="center"
+        android:hint="Enter Location"
         />
 </RelativeLayout>

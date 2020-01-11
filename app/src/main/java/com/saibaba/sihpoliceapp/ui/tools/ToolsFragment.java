@@ -7,16 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.support.annotation.Nullable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 
-import com.saibaba.sihpoliceapp.FIRStatus;
 import com.saibaba.sihpoliceapp.R;
-import com.saibaba.sihpoliceapp.ui.PercentageMatch;
+import com.saibaba.sihpoliceapp.ui.StatusFIR;
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 
 public class ToolsFragment extends Fragment {
@@ -49,7 +45,7 @@ public class ToolsFragment extends Fragment {
 root.findViewById(R.id.nextbtn).setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        FIRStatus firStatus=new FIRStatus();
+       StatusFIR firStatus=new StatusFIR();
         FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction()
                 .replace(R.id.nav_host_fragment,firStatus);
         fragmentTransaction.commit();

@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient">
-
+    android:id="@+id/frag"
+    android:background="#000000"
+    >
+   <ImageView
+       android:layout_width="152.2dp"
+       android:layout_height="232dp"
+       android:layout_marginTop="84.3dp"
+       android:layout_marginLeft="104.6dp"
+       android:src="@drawable/car"/>
    <TextView
-       android:layout_width="match_parent"
-       android:layout_height="65dp"
-       android:layout_marginTop="20dp"
-       android:background="@drawable/textfield"
+       android:layout_width="210dp"
+       android:layout_height="116dp"
+       android:layout_marginLeft="84dp"
+       android:layout_marginTop="352dp"
+       android:background="@drawable/identifyv"
        />
+
+   <Button
+       android:id="@+id/capture"
+       android:layout_width="320dp"
+       android:layout_height="55dp"
+       android:layout_marginLeft="20dp"
+       android:layout_marginTop="542dp"
+       android:background="@drawable/bg_submit_img"
+       android:shadowColor="#7528d8a1"
+
+       android:text="CAPTURE IMAGE"
+       android:textAlignment="center"
+       android:textColor="#ffffff"
+       android:textSize="16sp" />
+
+
 </RelativeLayout>
