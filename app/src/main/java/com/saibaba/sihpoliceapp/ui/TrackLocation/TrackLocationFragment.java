@@ -1,27 +1,24 @@
-package com.saibaba.sihpoliceapp.ui.gallery;
+package com.saibaba.sihpoliceapp.ui.TrackLocation;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.support.annotation.Nullable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 
 import com.saibaba.sihpoliceapp.R;
 
-public class GalleryFragment extends Fragment {
+public class TrackLocationFragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
+    private TrackLocationModel mTrackLocationModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                ViewModelProviders.of(this).get(GalleryViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
+        mTrackLocationModel =
+                ViewModelProviders.of(this).get(TrackLocationModel.class);
+        View root = inflater.inflate(R.layout.fragment_tracklocation, container, false);
 
         return root;
     }

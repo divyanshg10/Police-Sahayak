@@ -7,21 +7,21 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.saibaba.sihpoliceapp.ui.home.HomeFragment"
+        android:name="com.saibaba.sihpoliceapp.ui.IdentifyCriminal.IdentifyCriminalFragment"
         android:label="Identify Criminal"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_IdentifyCriminal" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.saibaba.sihpoliceapp.ui.gallery.GalleryFragment"
+        android:name="com.saibaba.sihpoliceapp.ui.TrackLocation.TrackLocationFragment"
         android:label="Track Location"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_TrackLocation" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.saibaba.sihpoliceapp.ui.slideshow.SlideshowFragment"
+        android:name="com.saibaba.sihpoliceapp.ui.beatsallocation.beatsallocationfragment"
         android:label="Beats Allocation"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_BeatsAllocation" />
 
     <fragment
         android:id="@+id/nav_tools"
