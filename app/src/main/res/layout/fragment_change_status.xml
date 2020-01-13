@@ -121,8 +121,10 @@
                 android:layout_height="40dp"
                 android:background="@drawable/bg_edittext"
                 android:hint="Select Date"
+
                 android:layout_margin="8dp"
-                android:inputType="date"
+                android:clickable="true"
+
                 android:paddingLeft="15dp"
                 android:textColor="#798184"
                 android:textColorHint="#798184"/>

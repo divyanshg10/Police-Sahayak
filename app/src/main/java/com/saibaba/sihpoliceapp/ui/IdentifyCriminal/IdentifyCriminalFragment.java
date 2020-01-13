@@ -1,13 +1,13 @@
 package com.saibaba.sihpoliceapp.ui.IdentifyCriminal;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
+import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.saibaba.sihpoliceapp.R;
 import com.saibaba.sihpoliceapp.ui.PercentageMatch;
