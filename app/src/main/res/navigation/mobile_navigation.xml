@@ -31,18 +31,18 @@
 
     <fragment
         android:id="@+id/nav_share"
-        android:name="com.saibaba.sihpoliceapp.ui.share.ShareFragment"
+        android:name="com.saibaba.sihpoliceapp.ui.IdentifyVehicle.IdentifyVehicle"
         android:label="Identify Vehicle"
-        tools:layout="@layout/fragment_share" />
+        tools:layout="@layout/fragment_identify_vehicle" />
 
     <fragment
         android:id="@+id/nav_send"
-        android:name="com.saibaba.sihpoliceapp.ui.send.SendFragment"
+        android:name="com.saibaba.sihpoliceapp.ui.Notice.NoticeFragment"
         android:label="Notice Board"
-        tools:layout="@layout/fragment_send" />
+        tools:layout="@layout/fragment_notice" />
     <fragment
         android:id="@+id/nav_police"
-        android:name="com.saibaba.sihpoliceapp.AddCriminal"
+        android:name="com.saibaba.sihpoliceapp.ui.AddCriminal"
         android:label="Add Criminal"
         tools:layout="@layout/fragment_add_criminal" />
 </navigation>

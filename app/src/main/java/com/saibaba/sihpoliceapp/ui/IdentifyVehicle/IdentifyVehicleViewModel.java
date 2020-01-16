@@ -1,14 +1,14 @@
-package com.saibaba.sihpoliceapp.ui.share;
+package com.saibaba.sihpoliceapp.ui.IdentifyVehicle;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ShareViewModel extends ViewModel {
+public class IdentifyVehicleViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public ShareViewModel() {
+    public IdentifyVehicleViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is share fragment");
     }

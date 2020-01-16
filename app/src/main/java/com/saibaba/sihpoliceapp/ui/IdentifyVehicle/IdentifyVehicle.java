@@ -1,4 +1,4 @@
-package com.saibaba.sihpoliceapp.ui.send;
+package com.saibaba.sihpoliceapp.ui.IdentifyVehicle;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,15 +11,15 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.saibaba.sihpoliceapp.R;
 
-public class SendFragment extends Fragment {
+public class IdentifyVehicle extends Fragment {
 
-    private SendViewModel sendViewModel;
+    private IdentifyVehicleViewModel mIdentifyVehicleViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        sendViewModel =
-                ViewModelProviders.of(this).get(SendViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_send, container, false);
+        mIdentifyVehicleViewModel =
+                ViewModelProviders.of(this).get(IdentifyVehicleViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_identify_vehicle, container, false);
 
         return root;
     }

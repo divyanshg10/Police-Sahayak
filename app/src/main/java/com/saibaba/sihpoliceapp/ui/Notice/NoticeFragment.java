@@ -1,4 +1,4 @@
-package com.saibaba.sihpoliceapp.ui.share;
+package com.saibaba.sihpoliceapp.ui.Notice;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,15 +11,15 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.saibaba.sihpoliceapp.R;
 
-public class ShareFragment extends Fragment {
+public class NoticeFragment extends Fragment {
 
-    private ShareViewModel shareViewModel;
+    private NoticeViewModel sendViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        shareViewModel =
-                ViewModelProviders.of(this).get(ShareViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_share, container, false);
+        sendViewModel =
+                ViewModelProviders.of(this).get(NoticeViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_notice, container, false);
 
         return root;
     }

@@ -1,14 +1,14 @@
-package com.saibaba.sihpoliceapp.ui.send;
+package com.saibaba.sihpoliceapp.ui.Notice;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SendViewModel extends ViewModel {
+public class NoticeViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SendViewModel() {
+    public NoticeViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is send fragment");
     }
