@@ -14,6 +14,7 @@ android:id="@+id/pieChart"
         android:layout_alignTop="@+id/pieChart"
         android:text="Tap to View Details"
         android:layout_marginLeft="100dp"
+        android:id="@+id/vdetails"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         />
 <!--

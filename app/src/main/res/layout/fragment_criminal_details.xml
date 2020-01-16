@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#00171d">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Criminal Details"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#00171d">
+            <ImageView
+                android:id="@+id/cimage"
+                android:layout_width="139.9dp"
+                android:layout_height="139.9dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/logo" />
+            <View
+                android:layout_width="7dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="18dp"
+                android:background="#a40404" />
+
+            <ImageView
+                android:id="@+id/c1image"
+                android:layout_width="139.9dp"
+                android:layout_height="139.9dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/logo" />
+        </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Name"
+                android:gravity="start"
+                android:textColor="#fff"
+                android:paddingStart="15dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="15dp"
+                android:textSize="15sp"
+                />
+            <EditText
+                android:id="@+id/cdname"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_edittext"
+
+                android:layout_margin="8dp"
+                android:inputType="textPersonName"
+                android:paddingLeft="15dp"
+                android:textColor="#798184"
+                android:textColorHint="#798184"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Father's Name"
+                android:gravity="start"
+                android:textColor="#fff"
+                android:paddingStart="15dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="15dp"
+                android:textSize="15sp"
+                />
+            <EditText
+                android:id="@+id/cdfname"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_edittext"
+
+                android:layout_margin="8dp"
+                android:inputType="textPersonName"
+                android:paddingLeft="15dp"
+                android:textColor="#798184"
+                android:textColorHint="#798184"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age"
+                android:gravity="start"
+                android:textColor="#fff"
+                android:paddingStart="15dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="15dp"
+                android:textSize="15sp"
+                />
+            <EditText
+                android:id="@+id/cdage"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_edittext"
+
+                android:layout_margin="8dp"
+                android:inputType="number"
+                android:paddingLeft="15dp"
+                android:textColor="#798184"
+                android:textColorHint="#798184"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Crime Details"
+                android:gravity="start"
+                android:textColor="#fff"
+                android:paddingStart="15dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="15dp"
+                android:textSize="15sp"
+                />
+            <EditText
+                android:id="@+id/cddetails"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_edittext"
+
+                android:layout_margin="8dp"
+                android:inputType="textPersonName"
+                android:paddingLeft="15dp"
+                android:textColor="#798184"
+                android:textColorHint="#798184"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Operational Area"
+                android:gravity="start"
+                android:textColor="#fff"
+                android:paddingStart="15dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="15dp"
+                android:textSize="15sp"
+                />
+            <EditText
+                android:id="@+id/cdtype"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_edittext"
+
+                android:layout_margin="8dp"
+                android:inputType="textPersonName"
+                android:paddingLeft="15dp"
+                android:textColor="#798184"
+                android:textColorHint="#798184"/>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+
+                android:weightSum="12">
+
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Awards Announced"
+                    android:gravity="start"
+                    android:textColor="#fff"
+                    android:paddingStart="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingEnd="15dp"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/cyes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_edittext"
+                    android:text="Yes"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:textColor="#fff"
+                    android:textSize="15sp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"/>
+                <TextView
+                    android:id="@+id/cno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@drawable/bg_edittext"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="No"
+                    android:textColor="#fff"
+                    android:textSize="15sp"
+                    android:layout_marginHorizontal="15dp"/>
+
+
+            </LinearLayout>
+            
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
