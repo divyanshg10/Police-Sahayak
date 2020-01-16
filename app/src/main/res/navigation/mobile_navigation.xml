@@ -9,19 +9,19 @@
         android:id="@+id/nav_home"
         android:name="com.saibaba.sihpoliceapp.ui.IdentifyCriminal.IdentifyCriminalFragment"
         android:label="Identify Criminal"
-        tools:layout="@layout/fragment_IdentifyCriminal" />
+        tools:layout="@layout/fragment_identifycriminal" />
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.saibaba.sihpoliceapp.ui.TrackLocation.TrackLocationFragment"
         android:label="Track Location"
-        tools:layout="@layout/fragment_TrackLocation" />
+        tools:layout="@layout/fragment_tracklocation" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.saibaba.sihpoliceapp.ui.beatsallocation.beatsallocationfragment"
         android:label="Beats Allocation"
-        tools:layout="@layout/fragment_BeatsAllocation" />
+        tools:layout="@layout/fragment_beatsallocation" />
 
     <fragment
         android:id="@+id/nav_tools"
@@ -38,6 +38,11 @@
     <fragment
         android:id="@+id/nav_send"
         android:name="com.saibaba.sihpoliceapp.ui.send.SendFragment"
-        android:label="@string/menu_send"
+        android:label="Notice Board"
         tools:layout="@layout/fragment_send" />
+    <fragment
+        android:id="@+id/nav_police"
+        android:name="com.saibaba.sihpoliceapp.knowPS"
+        android:label="Police Station Details"
+        tools:layout="@layout/fragment_know" />
 </navigation>
