@@ -42,7 +42,7 @@
         tools:layout="@layout/fragment_send" />
     <fragment
         android:id="@+id/nav_police"
-        android:name="com.saibaba.sihpoliceapp.knowPS"
-        android:label="Police Station Details"
-        tools:layout="@layout/fragment_know" />
+        android:name="com.saibaba.sihpoliceapp.AddCriminal"
+        android:label="Add Criminal"
+        tools:layout="@layout/fragment_add_criminal" />
 </navigation>
