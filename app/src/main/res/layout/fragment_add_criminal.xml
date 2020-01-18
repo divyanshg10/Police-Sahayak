@@ -222,12 +222,12 @@
             android:layout_centerInParent="true" />
 
         <Button
-            android:id="@+id/nextbtn"
+            android:id="@+id/cnextbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_submit_btn"
             android:gravity="center"
-            android:text="Next"
+            android:text="Save"
             android:lineSpacingExtra="3sp"
             android:textColor="#ffffff" />
 

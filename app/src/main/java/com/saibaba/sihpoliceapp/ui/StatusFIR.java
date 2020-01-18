@@ -3,11 +3,15 @@ package com.saibaba.sihpoliceapp.ui;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.saibaba.sihpoliceapp.Popup;
 import com.saibaba.sihpoliceapp.R;
 
 /**
@@ -16,7 +20,7 @@ import com.saibaba.sihpoliceapp.R;
 public class StatusFIR extends Fragment {
     private TextView pending,disposed,both;
     String status="";
-
+Button fssave;
     public StatusFIR() {
         // Required empty public constructor
     }
@@ -27,9 +31,9 @@ public class StatusFIR extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root=inflater.inflate(R.layout.fragment_status_fir, container, false);
-        pending=root.findViewById(R.id.pending);
-        disposed=root.findViewById(R.id.disposed);
-        both=root.findViewById(R.id.both);
+        pending=root.findViewById(R.id.fspending);
+        disposed=root.findViewById(R.id.fsdisposed);
+        both=root.findViewById(R.id.fsboth);
         pending.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,6 +60,16 @@ public class StatusFIR extends Fragment {
                 both.setBackground(getResources().getDrawable(R.drawable.bg_edittextselected));
                 disposed.setBackground(getResources().getDrawable(R.drawable.bg_edittext));
                 pending.setBackground(getResources().getDrawable(R.drawable.bg_edittext));
+            }
+        });
+
+        root.findViewById(R.id.fssave).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Popup gf=new Popup();
+                FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction()
+                        .replace(R.id.nav_host_fragment,gf);
+                fragmentTransaction.commit();
             }
         });
         return  root;

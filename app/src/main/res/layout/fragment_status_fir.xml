@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".FIRStatus">
+    >
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/birl1">
+        android:layout_above="@id/fs">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                     android:layout_weight="1"/>
 
                 <TextView
-                    android:id="@+id/pending"
+                    android:id="@+id/fspending"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_edittext"
@@ -65,7 +65,7 @@
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"/>
                 <TextView
-                    android:id="@+id/disposed"
+                    android:id="@+id/fsdisposed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -80,7 +80,7 @@
                     android:layout_marginHorizontal="15dp"/>
 
                 <TextView
-                    android:id="@+id/both"
+                    android:id="@+id/fsboth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_edittext"
@@ -99,7 +99,7 @@
     </ScrollView>
 
     <RelativeLayout
-        android:id="@+id/birl1"
+        android:id="@+id/fs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -117,7 +117,7 @@
             android:layout_centerInParent="true" />
 
         <Button
-            android:id="@+id/savebtn"
+            android:id="@+id/fssave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_submit_btn"
