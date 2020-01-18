@@ -8,6 +8,16 @@
         android:layout_height="match_parent"
 android:id="@+id/pieChart"
         />
+    <ImageView
+        android:id="@+id/iconrecycle1"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginLeft="110dp"
+        android:background="@drawable/circlebackground"
+        android:padding="5dp"
+        >
+    </ImageView>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
