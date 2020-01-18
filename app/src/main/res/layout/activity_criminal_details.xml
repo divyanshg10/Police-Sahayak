@@ -63,11 +63,12 @@
                 android:paddingEnd="15dp"
                 android:textSize="15sp"
                 />
-            <EditText
+            <TextView
                 android:id="@+id/fcname"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:clickable="false"
+                android:editable="false"
                 android:background="@drawable/bg_edittext"
 
                 android:layout_margin="8dp"
@@ -86,13 +87,13 @@
                 android:paddingEnd="15dp"
                 android:textSize="15sp"
                 />
-            <EditText
+            <TextView
                 android:id="@+id/fcfname"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:clickable="false"
                 android:background="@drawable/bg_edittext"
-
+                android:editable="false"
                 android:layout_margin="8dp"
                 android:inputType="textPersonName"
                 android:paddingLeft="15dp"
@@ -110,12 +111,12 @@
                 android:paddingEnd="15dp"
                 android:textSize="15sp"
                 />
-            <EditText
+            <TextView
                 android:id="@+id/fcage"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/bg_edittext"
-
+                android:editable="false"
                 android:layout_margin="8dp"
                 android:inputType="number"
                 android:paddingLeft="15dp"
@@ -133,12 +134,12 @@
                 android:paddingEnd="15dp"
                 android:textSize="15sp"
                 />
-            <EditText
+            <TextView
                 android:id="@+id/fcdetails"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/bg_edittext"
-
+                android:editable="false"
                 android:layout_margin="8dp"
                 android:clickable="false"
                 android:inputType="textPersonName"
@@ -156,12 +157,12 @@
                 android:paddingEnd="15dp"
                 android:textSize="15sp"
                 />
-            <EditText
+            <TextView
                 android:id="@+id/fctype"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/bg_edittext"
-
+                android:editable="false"
                 android:layout_margin="8dp"
                 android:clickable="false"
                 android:inputType="textPersonName"
@@ -228,34 +229,4 @@
 
         </LinearLayout>
     </ScrollView>
-    <RelativeLayout
-        android:id="@+id/cdmark"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_alignParentBottom="true">
-
-        <ProgressBar
-            android:id="@+id/info_progress"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:elevation="10dp"
-            android:progressTint="#ffffff"
-            android:indeterminateTint="#ffffff"
-            android:backgroundTint="#ffffff"
-            android:visibility="gone"
-            android:layout_centerInParent="true" />
-
-        <Button
-            android:id="@+id/fcfound"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_submit_btn"
-            android:gravity="center"
-            android:text="Mark as Found"
-
-            android:lineSpacingExtra="3sp"
-            android:textColor="#ffffff" />
-
-    </RelativeLayout>
 </RelativeLayout>

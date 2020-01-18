@@ -9,7 +9,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,7 +27,7 @@ public class CriminalDetails extends AppCompatActivity {
     private static final String TAG = "CriminalDetails";
 
     private ImageView criminalCaptured,criminalOrg;
-    private EditText name,fname,age,crimeDetails,operationalArea;
+    private TextView name,fname,age,crimeDetails,operationalArea;
     private Face face;
 
 
@@ -70,12 +72,17 @@ public class CriminalDetails extends AppCompatActivity {
         age.setText(getDOB((long)ds.child("dob").getValue()));
         operationalArea.setText((String)ds.child("city").getValue()+" , "+(String)ds.child("district").getValue());
         crimeDetails.setText(getDetails(ds.child("crimes")));
-        downloadImage(ds.child("image"));
+        downloadImage(ds.child("images"));
     }
 
     private String getDOB(long dob){
-        long age=System.currentTimeMillis()-dob;
-        age=age/(1000*60*60*24*365);
+        Log.d(TAG, "getDOB: datebase time "+dob);
+        long currentTime=System.currentTimeMillis();
+        Log.d(TAG, "getDOB: current time"+currentTime);
+        long age=currentTime - dob;
+        Log.d(TAG, "getDOB: "+age);
+        age=age/(1000l*60l*60l*24l*365l);
+        Log.d(TAG, "getDOB: "+age);
         return String.valueOf(age);
     }
 
@@ -87,6 +94,7 @@ public class CriminalDetails extends AppCompatActivity {
     }
 
     private void downloadImage(DataSnapshot ds){
+        Log.d(TAG, "downloadImage: came");
         for(DataSnapshot dataSnapshot:ds.getChildren()){
             setImage((String)dataSnapshot.child("url").getValue());
             return;
@@ -94,11 +102,18 @@ public class CriminalDetails extends AppCompatActivity {
     }
 
     private void setImage(String downloadURL){
+        Log.d(TAG, "setImage: came");
         FirebaseStorage.getInstance().getReference().child(downloadURL)
                 .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 Log.d(TAG, "onSuccess: "+uri);
+                Picasso.get().load(uri).into(criminalOrg);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d(TAG, "onFailure: exception occurred "+e.getMessage());
             }
         });
     }
