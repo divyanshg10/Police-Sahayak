@@ -31,10 +31,13 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.widget.Button;
 
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 Button capturecri;
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +46,7 @@ Button capturecri;
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,6 +66,7 @@ Button capturecri;
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         goForPermissionCheck();
+        setFabButton();
 
     }
 
@@ -113,4 +117,17 @@ Button capturecri;
         }
         return true;
     }
+
+    private void setFabButton(){
+        HashMap<String,String> hashMap=Constants.getDataFromSharedPreferences(this);
+        if(hashMap.get(Constants.USER_LEVEL).equals("3")){
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Snackbar.make(v,"You are not allowed",Snackbar.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
 }

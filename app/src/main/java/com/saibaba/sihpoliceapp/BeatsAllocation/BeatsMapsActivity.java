@@ -112,6 +112,7 @@ public class BeatsMapsActivity extends AppCompatActivity implements OnMapReadyCa
                     .title((String)dataSnapshot.getKey())
                     .draggable(true)
                     .position(Patna);
+            markerOptions.snippet("name : "+dataSnapshot.getValue());
             Marker marker=mMap.addMarker(markerOptions);
             markersHashMap.put(dataSnapshot.getKey(),marker);
         }
