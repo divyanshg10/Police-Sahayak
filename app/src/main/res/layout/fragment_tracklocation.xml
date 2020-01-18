@@ -22,7 +22,7 @@
         />
 
     <Button
-        android:id="@+id/capture"
+        android:id="@+id/captureLocation"
         android:layout_width="320dp"
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"
