@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +26,7 @@ public class CriminalDetails extends AppCompatActivity {
     private static final String TAG = "CriminalDetails";
 
     private ImageView criminalCaptured,criminalOrg;
-    private EditText name,fname,age,crimeDetails,operationalArea;
+    private TextView name,fname,age,crimeDetails,operationalArea;
     private Face face;
 
 
@@ -70,7 +71,7 @@ public class CriminalDetails extends AppCompatActivity {
         age.setText(getDOB((long)ds.child("dob").getValue()));
         operationalArea.setText((String)ds.child("city").getValue()+" , "+(String)ds.child("district").getValue());
         crimeDetails.setText(getDetails(ds.child("crimes")));
-        downloadImage(ds.child("image"));
+        downloadImage(ds.child("images"));
     }
 
     private String getDOB(long dob){
@@ -99,6 +100,7 @@ public class CriminalDetails extends AppCompatActivity {
             @Override
             public void onSuccess(Uri uri) {
                 Log.d(TAG, "onSuccess: "+uri);
+                Picasso.get().load(uri).into(criminalOrg);
             }
         });
     }

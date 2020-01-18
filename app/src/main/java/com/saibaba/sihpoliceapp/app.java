@@ -8,8 +8,10 @@ import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
 
 public class app extends Application {
+    private static final String TAG = "app";
     public static final String  CHANNEL_ID_1="channel1";
     public static final String  CHANNEL_ID_2="channel2";
 
@@ -21,6 +23,7 @@ public class app extends Application {
 
     private void createNotificationChannel(){
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+            Log.d(TAG, "createNotificationChannel: started creating channels");
             NotificationChannel notificationChannel=new NotificationChannel(CHANNEL_ID_1,"channel for foreground service",NotificationManager.IMPORTANCE_DEFAULT);
             notificationChannel.setLightColor(Color.RED);
             NotificationManager notificationManager=getSystemService(NotificationManager.class);

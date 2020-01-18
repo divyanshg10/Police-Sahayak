@@ -16,6 +16,7 @@ android:id="@+id/pieChart"
         android:layout_marginLeft="110dp"
         android:background="@drawable/circlebackground"
         android:padding="5dp"
+        android:visibility="gone"
         >
     </ImageView>
     <TextView
