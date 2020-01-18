@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+        <LinearLayout
+            android:id="@+id/vehicle_lost_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#00171d">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Vehicle Found"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:gravity="start"
+                android:textColor="#fff"
+                android:paddingStart="15dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="15dp"
+                android:textSize="15sp"
+                />
+            <TextView
+                android:id="@+id/vfinfo_name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_edittext"
+
+                android:layout_margin="8dp"
+                android:inputType="textPersonName"
+                android:paddingLeft="15dp"
+                android:textColor="#798184"
+                android:textColorHint="#798184"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age"
+                android:gravity="start"
+                android:textColor="#fff"
+                android:paddingStart="15dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="15dp"
+                android:textSize="15sp"
+                />
+            <TextView
+                android:id="@+id/vfinfo_age"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_edittext"
+
+                android:layout_margin="8dp"
+                android:inputType="number"
+                android:paddingLeft="15dp"
+                android:textColor="#798184"
+                android:textColorHint="#798184"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mobile Number"
+                android:gravity="start"
+                android:textColor="#fff"
+                android:paddingStart="15dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="15dp"
+                android:textSize="15sp"
+                />
+            <TextView
+                android:id="@+id/vfinfo_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_edittext"
+
+                android:layout_margin="8dp"
+                android:inputType="number"
+                android:paddingLeft="15dp"
+                android:textColor="#798184"
+                android:textColorHint="#798184"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Registration Number"
+                android:gravity="start"
+                android:textColor="#fff"
+                android:paddingStart="15dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="15dp"
+                android:textSize="15sp"
+                />
+            <TextView
+                android:id="@+id/vfinfo_reg"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_edittext"
+
+                android:layout_margin="8dp"
+                android:inputType="number"
+                android:paddingLeft="15dp"
+                android:textColor="#798184"
+                android:textColorHint="#798184"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Engine Number"
+                android:gravity="start"
+                android:textColor="#fff"
+                android:paddingStart="15dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="15dp"
+                android:textSize="15sp"
+                />
+            <TextView
+                android:id="@+id/vfinfo_engine"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_edittext"
+                android:layout_margin="8dp"
+                android:inputType="number"
+                android:paddingLeft="15dp"
+                android:textColor="#798184"
+                android:textColorHint="#798184"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chassis Number"
+                android:gravity="start"
+                android:textColor="#fff"
+                android:paddingStart="15dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="15dp"
+                android:textSize="15sp"
+                />
+            <TextView
+                android:id="@+id/vfinfo_chassis"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_edittext"
+
+                android:layout_margin="8dp"
+                android:inputType="number"
+                android:paddingLeft="15dp"
+                android:textColor="#798184"
+                android:textColorHint="#798184"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

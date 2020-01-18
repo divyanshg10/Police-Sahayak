@@ -25,7 +25,7 @@ import com.saibaba.sihpoliceapp.ui.IdentifyCriminal.IdentifyCriminalFragment;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class IdentifyVehicle extends Fragment {
+public class IdentifyVehicle extends Fragment implements BackgroundTaskForVehicle.dataProcessed {
 
     private static final String TAG = "IdentifyVehicle";
     private IdentifyVehicleViewModel mIdentifyVehicleViewModel;
@@ -60,25 +60,18 @@ public class IdentifyVehicle extends Fragment {
         if(requestCode==REQUEST_IMAGE_CAPTURE_FOR_VEHICLE&&resultCode== Activity.RESULT_OK){
             Bundle Extras=data.getExtras();
             imageBitmap=(Bitmap) Extras.get("data");
-            BackgroundTaskForVehicle backgroundTaskForVehicle =new BackgroundTaskForVehicle();
+            BackgroundTaskForVehicle backgroundTaskForVehicle =new BackgroundTaskForVehicle(this);
 //            backgroundTaskForCriminalDetect.setOnBackgroudTaskForCriminalDetectCompleteListener(g);
             byte[] byteArray = IdentifyCriminalFragment.bitmapToBytesArray(imageBitmap);
             Bundle bundle=new Bundle();
             bundle.putByteArray("image",byteArray);
-            progressDialog.setMessage("detecting faces");
+            progressDialog.setMessage("detecting registration number");
             progressDialog.show();
             String response="";
             try {
-                response = backgroundTaskForVehicle.execute(bundle).get();
-                Log.d(TAG, "onActivityResult: response "+response);
+                backgroundTaskForVehicle.execute(bundle);
             }catch (Exception e){
                 Log.e(TAG, "onActivityResult: exception thrown with "+e.getMessage() );
-            }
-            if(response.equals(response.equals(""))){
-                progressDialog.dismiss();
-                showToast("Some Error Occurred");
-            }else{
-                parseJSON(response);
             }
         }
     }
@@ -92,10 +85,19 @@ public class IdentifyVehicle extends Fragment {
             JSONArray jsonArray=jsonObject.getJSONArray("recognitionResults");
             JSONObject jsonObject1=jsonArray.getJSONObject(0);
             JSONArray jsonArray1=jsonObject1.getJSONArray("lines");
-            JSONObject jsonObject2=jsonArray1.getJSONObject(jsonArray1.length()-1);
-            String regNumber=(String)jsonObject2.get("text");
-            progressDialog.dismiss();
-            showToast(regNumber);
+            if(jsonArray1.length()==0){
+                showToast("Some Error Occurred");
+                progressDialog.dismiss();
+            }else {
+                JSONObject jsonObject2 = jsonArray1.getJSONObject(jsonArray1.length() - 1);
+                String regNumber = (String) jsonObject2.get("text");
+                progressDialog.dismiss();
+                Log.d(TAG, "parseJSON: registration "+regNumber);
+                Intent intent=new Intent(getActivity(),Vehicle_found.class);
+                intent.putExtra("reg",regNumber);
+                progressDialog.dismiss();
+                startActivity(intent);
+            }
         }catch (Exception e){
             progressDialog.dismiss();
             showToast("Some Error Occurred");
@@ -103,4 +105,13 @@ public class IdentifyVehicle extends Fragment {
         }
     }
 
+    @Override
+    public void onDataProcessed(String response) {
+        if(response.equals(response.equals(""))){
+            progressDialog.dismiss();
+            showToast("Some Error Occurred");
+        }else{
+            parseJSON(response);
+        }
+    }
 }

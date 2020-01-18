@@ -13,9 +13,18 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class BackgroundTaskForVehicle extends AsyncTask<Object,Void,String> {
+public class BackgroundTaskForVehicle extends AsyncTask<Object,Void,String>  {
 
     private static final String TAG = "BackgroundTaskForVehicl";
+    private dataProcessed callback;
+
+    public interface dataProcessed{
+        void onDataProcessed(String string);
+    }
+
+    public BackgroundTaskForVehicle(dataProcessed callback) {
+        this.callback=callback;
+    }
 
     @Override
     protected String doInBackground(Object... objects) {
@@ -64,5 +73,10 @@ public class BackgroundTaskForVehicle extends AsyncTask<Object,Void,String> {
             Log.d(TAG, "doInBackground exception is: "+e.getMessage());
         }
         return data.toString();
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        callback.onDataProcessed(s);
     }
 }
