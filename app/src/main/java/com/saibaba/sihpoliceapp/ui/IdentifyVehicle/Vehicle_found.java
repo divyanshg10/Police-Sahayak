@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -42,6 +43,7 @@ public class Vehicle_found extends AppCompatActivity {
                         if(!dataSnapshot.exists()){
                             Log.d(TAG, "onDataChange: no found");
                             progressDialog.dismiss();
+                            Toast.makeText(Vehicle_found.this,"No match found",Toast.LENGTH_SHORT).show();
                             finish();
                         }else{
                             getData(dataSnapshot);
@@ -52,6 +54,7 @@ public class Vehicle_found extends AppCompatActivity {
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                         Log.d(TAG, "onCancelled: "+databaseError.getMessage());
                         progressDialog.dismiss();
+                        Toast.makeText(Vehicle_found.this,"Some error occurred",Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });
