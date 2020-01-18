@@ -37,8 +37,11 @@
             android:value="@string/google_maps_key" />
 
         <activity
+            android:name=".BeatsAllocation.BeatsMapsActivity"
+            android:label="@string/title_activity_beats_maps"></activity>
+        <activity
             android:name=".map.MapsActivity"
-            android:label="Map"></activity>
+            android:label="Map" />
         <activity android:name=".ui.CriminalDetails" />
         <activity android:name=".Splash">
             <intent-filter>

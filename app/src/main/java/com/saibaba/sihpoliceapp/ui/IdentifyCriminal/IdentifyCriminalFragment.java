@@ -96,7 +96,7 @@ public class IdentifyCriminalFragment extends Fragment implements BackgroundTask
         }
     }
 
-    private static byte[] bitmapToBytesArray(Bitmap bitmap){
+    public static byte[] bitmapToBytesArray(Bitmap bitmap){
         ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
         return byteArrayOutputStream.toByteArray();

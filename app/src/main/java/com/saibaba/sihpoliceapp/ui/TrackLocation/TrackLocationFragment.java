@@ -28,23 +28,36 @@ public class TrackLocationFragment extends Fragment {
 //        if(Loca)
         if(locationService.getLocationServiceStatus()== LocationServiceStatus.RUNNNING){
             button.setText("Stop Capturing Location");
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+//            button.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    getActivity().stopService(new Intent(getContext(),locationService.class));
+//                    button.setText("Capture Location");
+//                }
+//            });
+        }else{
+            button.setText("Capture Location");
+//            button.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+////                    startService();
+//                    getActivity().startService(new Intent(getContext(), locationService.class));
+//                    button.setText("Stop Capturing Location");
+//                }
+//            });
+        }
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(button.getText().toString().equals("Capture Location")){
+                    getActivity().startService(new Intent(getContext(), locationService.class));
+                    button.setText("Stop Capturing Location");
+                }else{
                     getActivity().stopService(new Intent(getContext(),locationService.class));
                     button.setText("Capture Location");
                 }
-            });
-        }else{
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-//                    startService();
-                    getActivity().startService(new Intent(getContext(), locationService.class));
-                    button.setText("Stop Capturing Location");
-                }
-            });
-        }
+            }
+        });
         return root;
     }
     private void stopService(){

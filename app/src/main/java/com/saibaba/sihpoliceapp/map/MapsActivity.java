@@ -89,7 +89,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     String key=dataSnapshot.getKey();
                     Marker marker=mMap.addMarker(new MarkerOptions()
                             .position(getLatLng(dataSnapshot))
-                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET))
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.car))
                             .title(key));
                     hashMap.put(key,marker);
                 }
