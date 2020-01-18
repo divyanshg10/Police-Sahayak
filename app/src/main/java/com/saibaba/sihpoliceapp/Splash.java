@@ -5,6 +5,8 @@ import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.saibaba.sihpoliceapp.login.Login;
+
 public class Splash extends AppCompatActivity {
     private static int SPLASH_TIME_OUT=3500;
     @Override
@@ -14,7 +16,7 @@ public class Splash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run(){
-                Intent homeIntent=new Intent(Splash.this,MainActivity.class);
+                Intent homeIntent=new Intent(Splash.this, Login.class);
                 startActivity(homeIntent);
                 finish();
             }

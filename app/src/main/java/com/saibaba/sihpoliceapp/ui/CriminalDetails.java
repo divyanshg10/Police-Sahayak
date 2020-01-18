@@ -75,7 +75,7 @@ public class CriminalDetails extends AppCompatActivity {
 
     private String getDOB(long dob){
         long age=System.currentTimeMillis()-dob;
-        age=age/(1000*60*60*24*365);
+        age=age/(1000l*60l*60l*24l*365l);
         return String.valueOf(age);
     }
 

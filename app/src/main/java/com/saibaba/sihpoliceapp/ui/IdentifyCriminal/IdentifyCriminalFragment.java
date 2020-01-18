@@ -155,6 +155,7 @@ public class IdentifyCriminalFragment extends Fragment implements BackgroundTask
                 startActivityForCriminalProfile(hashMap);
             }
         }catch (Exception e){
+            Log.d(TAG, "parseJson: "+response);
             showAlert("Some error occurred while communicating with server");
             Log.e(TAG, "parseJson: exception is "+e.getMessage());
         }
