@@ -36,7 +36,7 @@ public class app extends Application {
             notificationChannel1.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
             Uri soundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
             notificationChannel.setSound(soundUri,null);
-            long vibrationPattern[]={4,1,4};
+            long vibrationPattern[]={500,500,500,500,500,500,500,500,500};
             notificationChannel1.setVibrationPattern(vibrationPattern);
             notificationManager.createNotificationChannel(notificationChannel1);
         }

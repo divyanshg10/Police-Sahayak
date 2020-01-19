@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.location.Location;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.IBinder;
 import android.os.Looper;
@@ -245,6 +246,7 @@ public class locationService extends Service {
     }
 
     private void createSOSNotification(double latitude,double longitude,double platitude,double plongitude){
+        Uri soundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         String directionUri="http://maps.google.com/maps?saddr="+platitude+","+plongitude+"&daddr="+latitude+","+longitude;
         Notification notification=new NotificationCompat.Builder(this,app.CHANNEL_ID_2)
                 .setSmallIcon(R.mipmap.ic_launcher)
@@ -256,6 +258,7 @@ public class locationService extends Service {
                 .setAutoCancel(true)
                 .setPriority(NotificationCompat.PRIORITY_MAX)
                 .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
+                .setSound(soundUri)
                 .build();
         notificationManagerCompat.notify(notificationID++,notification);
 
