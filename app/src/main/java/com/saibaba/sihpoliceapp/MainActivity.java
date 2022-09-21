@@ -11,6 +11,9 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.preference.PreferenceActivity;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -33,6 +36,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.HashMap;
 
@@ -41,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
 Button capturecri;
     FloatingActionButton fab;
-
+    private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,21 +60,44 @@ Button capturecri;
                 startActivity(new Intent(MainActivity.this, MapsActivity.class));
             }
         });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_share)
                 .setDrawerLayout(drawer)
                 .build();
+
+        drawer.openDrawer(Gravity.LEFT);
+
+        HashMap<String,String> dataHashMap=Constants.getDataFromSharedPreferences(this);
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         goForPermissionCheck();
         setFabButton();
+        try {
+            View headerView = navigationView.inflateHeaderView(R.layout.nav_header_main);
+            TextView textView = headerView.findViewById(R.id.nav_head_name);
+            textView.setText(dataHashMap.get(Constants.USER_NAME));
 
+            textView = null;
+            textView = headerView.findViewById(R.id.nav_head_post);
+            textView.setText(dataHashMap.get(Constants.USER_RANK));
+
+            textView = null;
+            textView = headerView.findViewById(R.id.nav_head_scode);
+            if (dataHashMap.get(Constants.USER_LEVEL).equals("1")) {
+                textView.setVisibility(View.GONE);
+            } else {
+                textView.setText("," + dataHashMap.get(Constants.USER_STATION_ID));
+            }
+        }catch (Exception e){
+            Log.e(TAG, "onCreate: "+e.getMessage());
+        }
     }
 
     @Override
@@ -133,5 +160,6 @@ Button capturecri;
             });
         }
     }
+
 
 }

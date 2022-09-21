@@ -1,6 +1,8 @@
 package com.saibaba.sihpoliceapp.ui.beatsallocation;
 
 import android.content.Intent;
+import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +16,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,7 +36,8 @@ public class beatsallocationfragment extends Fragment {
     private beatsallocationviewModel mBeatsallocationviewModel;
     private TextView textViewAllocate;
     HashMap<String,String> hashMap;
-
+    private double latitude,longitude;
+    private FusedLocationProviderClient fusedLocationProviderClient;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +67,7 @@ public class beatsallocationfragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        fusedLocationProviderClient=LocationServices.getFusedLocationProviderClient(getActivity());
         if(!hashMap.get(Constants.USER_LEVEL).equals("3")){
             textViewAllocate.setVisibility(View.GONE);
         }else{
@@ -68,9 +75,17 @@ public class beatsallocationfragment extends Fragment {
                     .child("allocation").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    latitude=(double)dataSnapshot.child("latitude").getValue();
+                    longitude=(double)dataSnapshot.child("longitude").getValue();
                     String slatitude=String.valueOf( dataSnapshot.child("latitude").getValue());
                     String slongitude=String.valueOf(dataSnapshot.child("longitude").getValue());
                     textViewAllocate.setText("you are allocated coordinates { "+slatitude+" , "+slongitude+" }");
+                    LocationServices.getFusedLocationProviderClient(getActivity()).getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+                        @Override
+                        public void onSuccess(Location location) {
+                            setListener(location);
+                        }
+                    });
                 }
 
                 @Override
@@ -79,5 +94,15 @@ public class beatsallocationfragment extends Fragment {
                 }
             });
         }
+    }
+
+    private void setListener(Location location){
+        final String directionUri="http://maps.google.com/maps?saddr="+location.getLatitude()+","+location.getLongitude()+"&daddr="+latitude+","+longitude;
+        textViewAllocate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(directionUri)));
+            }
+        });
     }
 }

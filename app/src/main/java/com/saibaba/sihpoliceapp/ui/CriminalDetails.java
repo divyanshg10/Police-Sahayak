@@ -26,7 +26,7 @@ public class CriminalDetails extends AppCompatActivity {
     private static final String TAG = "CriminalDetails";
 
     private ImageView criminalCaptured,criminalOrg;
-    private TextView name,fname,age,crimeDetails,operationalArea;
+    private TextView name,fname,age,crimeDetails,operationalArea,fawards;
     private Face face;
 
 
@@ -47,6 +47,7 @@ public class CriminalDetails extends AppCompatActivity {
         age=findViewById(R.id.fcage);
         crimeDetails=findViewById(R.id.fcdetails);
         operationalArea=findViewById(R.id.fctype);
+        fawards=findViewById(R.id.faward);
     }
 
     private void getData(){
@@ -68,9 +69,14 @@ public class CriminalDetails extends AppCompatActivity {
         byte[] criminalImage = face.getImage();
         criminalCaptured.setImageBitmap(BitmapFactory.decodeByteArray(criminalImage,0,criminalImage.length));
         name.setText((String)ds.child("name").getValue());
+        fname.setText(ds.child("fathername").getValue().toString());
+
         age.setText(getDOB((long)ds.child("dob").getValue()));
         operationalArea.setText((String)ds.child("city").getValue()+" , "+(String)ds.child("district").getValue());
         crimeDetails.setText(getDetails(ds.child("crimes")));
+        try{
+            fawards.setText(""+ds.child("reward").getValue());
+        }catch (Exception e){}
         downloadImage(ds.child("images"));
     }
 
